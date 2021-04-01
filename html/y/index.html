@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>16-local storage</title>
+</head>
+
+<body>
+    <input id="new-item" type="text" />
+    <button onclick="addItem()">Add</button>
+    <ul id="todo-list">
+        <li>Take shower</li>
+        <li>Have a walk</li>
+        <li>Go to bed</li>
+    </ul>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script type="text/javascript">
+        // var storageKey = 'todo-list'
+        //   var item = (localStorage.getItem(storageKey));
+        //  var todoList;
+        //  if (item) {
+        //todoList = JSON.parse(item);
+        //  } else {
+        //   todoList = [];
+        // }
+
+
+        //      function upsessionStorage() {
+        //       sessionStorage.setItem('dark', input.value)
+        //   }
+        var url = 'http://localhost:9081/todolist';
+        axios.get(url).then(function(res) {
+            var items = res.data;
+            render(items);
+            console.log(items);
+        })
+        var itemss = [];
+
+        function addItem() {
+            //get vales of the input
+            var input = document.getElementById('new-item');
+            var newItem = input.value;
+            //add to todoList array
+            itemss.push(newItem);
+            //re-render
+            itemss.stringify('db.json');
+            input.value = '';
+            localStorage.setItem(storageKey, JSON.stringify(todoList));
+            // store data
+        }
+
+        function render(items) {
+            var htmlList = document.getElementById('todo-list');
+            var contents = items.map(item => '<li>' + item.content + '</li>');
+            htmlList.innerHTML = contents.join('');
+        }
+    </script>
+</body>
+
+</html>

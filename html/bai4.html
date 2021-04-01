@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>thuc hanh</title>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+
+<body>
+
+    <script>
+        var url = "https://randomuser.me/api/";
+        axios.get(url).then(function(res) {
+            var item = res.data;
+            console.log(item);
+            readLink(item);
+        });
+
+        function readLink(item) {
+            for (var i in item) {
+                document.write(i);
+            }
+        }
+    </script>
+</body>
+
+</html>

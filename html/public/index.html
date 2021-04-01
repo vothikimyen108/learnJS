@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>16-local storage</title>
+</head>
+
+<body>
+    <input id="new-item" type="text" />
+    <button onclick="addItem()">Add</button>
+    <ul id="todo-list">
+        <li>Take shower</li>
+        <li>Have a walk</li>
+        <li>Go to bed</li>
+    </ul>
+    <script type="text/javascript">
+        var items = [];
+
+        function addItem() {
+            //get vales of the input
+            var input = document.getElementById('new-item');
+            var newItem = input.value;
+            //add to todoList array
+            items.push(newItem);
+            render();
+            input.value = '';
+        }
+
+        function render() {
+            var htmlList = document.getElementById('todo-list');
+            var contents = items.map(item => '<li>' + item + '</li>');
+            htmlList.innerHTML = contents.join('');
+        }
+    </script>
+</body>
+
+</html>

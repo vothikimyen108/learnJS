@@ -1,0 +1,22 @@
+<!-- 
+- Sử dụng getElementsByTagName() để lấy ra danh sách các <p> có class là 'foo'
+- Lặp qua các phần tử và thay đổi nội dung của từng phần tử bằng cách append (thêm vào cuối) một đường link tới coders.tokyo site
+-->
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>thuc hanh</title>
+</head>
+
+<body>
+    <p class="foo">cat</p>
+    <p class="foo">dog</p>
+    <p class="aaa">beer</p>
+    <script>
+        var contents = document.querySelectorAll('p.foo');
+        for (var i = 0; i < contents.length; i++) {
+            contents[i].innerHTML = contents[i].innerHTML + '<a href = "coders.tokyo.com">abc</a>';
+        }
+    </script>
+</body>
+
+</html>

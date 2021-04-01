@@ -1,0 +1,12 @@
+{
+    "todolist": [{
+        "id": 1,
+        "content": "abc"
+    }, {
+        "id": 2,
+        "content": "cdc"
+    }, {
+        "id": 3,
+        "content": "uhs"
+    }]
+}

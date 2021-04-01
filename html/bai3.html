@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>Age</div>
+    <select id="selectID">
+        <option>19</option>
+        <option>20</option>
+        <option>23</option>
+    </select>
+    <table id='show-table'>
+    </table>
+    <script>
+        var students = [{
+            name: 'Yến',
+            age: 19
+        }, {
+            name: 'Triều',
+            age: 20
+        }, {
+            name: 'Uyên',
+            age: 23
+        }, {
+            name: 'Trang',
+            age: 19
+        }, {
+            name: 'Vĩ',
+            age: 20
+        }, {
+            name: 'Tùng',
+            age: 23
+        }];
+
+        function showTable(students) {
+            var idtable = document.getElementById('show-table');
+            var show = students.map(function(item) {
+                return '<tr><td>' + item.name + '</td><td>' + item.age + '</td></tr>';
+            })
+            idtable.innerHTML = show.join('');
+        }
+        showTable(students);
+        var selectt = document.getElementById('selectID');
+        selectt.addEventListener('change', function addfilter() {
+            var choine = parseInt(selectt.value);
+            var tableAge = students.filter(function(item) {
+                return choine === item.age;
+            });
+            showTable(tableAge);
+        });
+    </script>
+</body>
+
+</html>
